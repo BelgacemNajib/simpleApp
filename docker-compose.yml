@@ -1,0 +1,14 @@
+version: '2'
+services:
+  mosquitto:
+    image: eclipse-mosquitto:1.5
+    container_name: basicapp_mosquitto
+    restart: always
+
+  nodered:
+    image: mynodered
+    build: .
+    container_name: basicapp_nodered
+    ports:
+      - 1880:1880
+    restart: always

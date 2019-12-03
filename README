@@ -1,0 +1,12 @@
+This is a basic application using two containers. Public mosquitto image, and a custom image from node-red.
+It is just a tool to assess the abilities of the different frameworks we will need to evaluate.
+
+mosquitto image is juste a mqtt broker, nothing else.
+Custom node-red image is based from node-red public image, it also contain a dashboard module to have a graphical things, and it contain 2 flows.
+- One simulate a device who send periodicaly random numbers to mqtt topic (a producer)
+- The auther one listen from this topic en show value to dashboard (a consumer)
+
+How to use:
+- Create your custom nodered image : `docker build -t mynodered .`
+- If needed, change image name in docker-compose.yml file
+- After start your application (`docker-compose up` if localy), go to <target-IP>:1880 to see flows and <targer-IP>:1880/ui to see dashboard
